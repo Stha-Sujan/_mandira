@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block auth-content %}
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+    <div class="account-content">
+        <div class="login-wrapper">
+            <div class="login-content">
+                <div class="login-userset">
+                    <a href="index.html" class="login-logo logo-white">
+                        <img src="{% static 'assets/img/logo-white.png' %}"  alt="">
+                    </a>
+                    <div class="login-userheading">
+                        <h3>Sign In</h3>
+                        <h4>Please login to your account</h4>
+                    </div>
+                    <div id="error"></div>
+                    <form id="login-form" action="{% url 'accounts:authenticate' %}"> {% csrf_token %}
+                        <div class="form-login">
+                            <label>Username</label>
+                            <div class="form-addons">
+                                <input type="text" name="username" placeholder="Enter your username">
+                                <img src="{% static 'assets/img/icons/users1.svg' %}" alt="img">
+                            </div>
+                        </div>
+                        <div class="form-login">
+                            <label>Password</label>
+                            <div class="pass-group">
+                                <input type="password" name="password" class="pass-input" placeholder="Enter your password">
+                                <span class="fas toggle-password fa-eye-slash"></span>
+                            </div>
+                        </div>
+                        <div class="form-login">
+                            <div class="alreadyuser">
+                                <h4><a href="forgetpassword.html" class="hover-a">Forgot Password?</a></h4>
+                            </div>
+                        </div>
+                        <div class="form-login">
+                            <button type="submit" class="btn btn-login">Sign In</button>
+                        </div>
+                    </form>
+
+                    <div class="signinform text-center">
+                        <h4>Don’t have an account? <a href="signup.html" class="hover-a">Sign Up</a></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="login-img">
+                <img src="{% static 'assets/img/login.jpg' %}" alt="img">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Main Wrapper -->
+
+{% endblock %}
+
+{% block externaljs %}
+<script src="{% static 'assets/apps/accounts/accounts.js' %}"></script>
+{% endblock %}

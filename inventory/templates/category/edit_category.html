@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="page-title">
+                <h4>Product Edit Category</h4>
+                <h6>Edit a product Category</h6>
+            </div>
+        </div>
+        <!-- /add -->
+        <div class="card">
+            <div class="card-body">
+                <form id="edit-category-form" data-url="{% url 'category:category_detail' category.id %}">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Category Name</label>
+                                <input type="text" class="category_name" id="category_name" name="category_name" value="{{category.category_name}}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Category Code</label>
+                                <input type="text" class="category_code" id="category_code" name="category_code" value="{{category.category_code}}">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" class="description" id="description" name="description">{{category.description}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-submit me-2">Submit</button>
+                            <button type="button" class="btn btn-cancel">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /add -->
+    </div>
+</div>
+{% endblock %}
+
+{% block externaljs %}
+<script src="{% static 'assets/apps/category/category.js' %}"></script>
+{% endblock %}
